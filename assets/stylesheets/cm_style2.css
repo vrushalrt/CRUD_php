@@ -1,0 +1,71 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21 Sep, 2015, 1:24:07 AM
+    Author     : vrushal
+*/
+@import "http://fonts.googleapis.com/css?family=Droid+Serif";
+/* The Above Line Is To Import Google Font Style */
+
+
+.maindiv{
+    border-style:dashed;
+    border-color: red;
+    width: 30%;
+    text-align: left;
+    padding-top: 20px;
+    
+    
+}
+
+form h2 {
+text-align:center;
+text-shadow:2px 2px 2px #cfcfcf;
+
+}
+
+.title{
+    background-color: azure;
+    
+}
+.maindiv{
+    background-color: skyblue;
+  
+}
+
+.maindiv,.title,.form_div{
+   font-family: fantasy;
+}
+
+form {
+
+background-color:#f0f8ff
+}
+body{
+   
+}
+.input{
+    //padding-left: 50px;
+   // padding: 1px;
+}
+
+label{
+    padding-left: 10px;
+}
+
+.submit{
+    background-color: plum;
+    text-align:center;
+    
+}
+.red{
+    color: red;
+    
+}
+
+.comsize{
+    font-size: 30;
+}

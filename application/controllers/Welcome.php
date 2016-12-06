@@ -21,17 +21,31 @@ class Welcome extends CI_Controller {
 	function __Construct(){
   		parent::__Construct ();
    		$this->load->database(); // load database
-   		$this->load->helper('url'); // 
+   		 // 
+   		$this->load->library('form_validation');
 	}
 
 
 	public function index()
 	{
+		$this->load->helper('url');
 		$this->load->view('main');
 	}
 
-	public function add()
+	public function insert()
 	{
-		$this->load->model();
+		$this->load->helper('url');
+		$this->load->model('main_model');
+		$this->main_model->insert_record();
+		$this->load->view('main');
+	}
+
+	public function contact_list()
+	{
+		$this->load->model('main_model');
+		$data = array(
+						'h' => $this->main_model->select()
+					);
+		$this->load->view('contact_list',$data);
 	}
 }
