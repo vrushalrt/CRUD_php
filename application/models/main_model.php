@@ -35,4 +35,9 @@
 			$query = $this->db->get('contact');
 			return $query->result();
 		}
+
+		public function delete()
+		{
+			
+		}
 	}

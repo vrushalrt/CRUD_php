@@ -48,4 +48,17 @@ class Welcome extends CI_Controller {
 					);
 		$this->load->view('contact_list',$data);
 	}
+
+	public function edit()
+	{
+
+	}
+
+	public function delete()
+	{
+		$this->load->helper('url');
+		$this->load->model('main_model');
+		$this->main_model->delete();
+		$this->load->view('main');
+	}
 }
