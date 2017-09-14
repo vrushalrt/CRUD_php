@@ -25,6 +25,7 @@ class Home extends CI_Controller {
 		//$this->load->helper('url');
 		//$this->load->database(); //load db
 		$this->load->model('main_model');
+		$this->load->library('session');
 		//$this->load->validation('form_validation');
 		//$this->load->helper('form');
 		
@@ -76,10 +77,11 @@ class Home extends CI_Controller {
 	{
 
 		$data = array(
-						'search' => $this->main_model->search(),
+						'search'	=>	$this->main_model->search(),
 						'row'	=> $this->main_model->get_data()
 					);
 		$this->load->view('list',$data);
+		
 			
 	}
 	public function add()
@@ -99,8 +101,12 @@ class Home extends CI_Controller {
 	}
 	public function search()
 	{
-		$data = array('row' => $this->main_model->search());
+		$data = array(
+						'row' => $this->main_model->search(),
+						'page_section' => $this->main_model->page_section()
+						);
+		//print_r($data);exit();
 		$this->load->view('search_box',$data);
-		//print_r($data);
+		
 	}
 }

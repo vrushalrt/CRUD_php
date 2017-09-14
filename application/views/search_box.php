@@ -9,6 +9,7 @@
  		$header	=	'';
  	}
  	$output = '';
+ 	
  	$output .= $header;
  	$output .= '<div class="table-responsive" >
 						<table border="1" cellpadding="5" cellspacing="0">
@@ -38,9 +39,22 @@
 									</tr>
 							';	
 						}
-						'</table>';
-
-	
-					echo $output;
+				$output .= '</table> </div>';	
+				echo $output;
+				$pagination = '';
+					
+				$pagination .= '
+								<nav aria-label="Page navigation">
+									  <ul class="pagination">
+									    <li class="page-item"><a class="page-link" id="page-link" href="#" data-prev="prev">Previous</a></li>';
+									   for($i=1; $i <= $page_section; $i++)  
+											{
+				$pagination .= '<li class="page-item"><a class="page-link" id="page-link"  href="#" data-page="'.$i.'" value="'.$i.'">'.$i.'</a></li>';
+									    	}
+				$pagination .= '<li class="page-item"><a class="page-link" id="page-link" href="#" data-next="next">Next</a></li>
+									  </ul>
+									</nav>
+								' ;
+				echo $pagination;
 ?>
 </div>

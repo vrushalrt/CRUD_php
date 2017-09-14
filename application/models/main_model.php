@@ -65,15 +65,56 @@ class Main_model extends CI_Model
 
 	public function search()
 	{
+		
+		$limit = $this->input->post('limit');
+		$page_no = $this->input->post('page');
+		$next = $this->input->post('next');
+		$prev = $this->input->post('prev');
+
+		if(!isset($limit))
+		{
+			$limit = 5;
+		}
+		
+		if(!isset($page_no))
+		{
+			$page_no = 1;
+		}
+
+		$offset = ($page_no - 1) * $limit;
+		if(isset($prev))
+		{
+			
+		}
+
+		if($offset < 0)
+		{
+			$offset = 0;
+		}
+		$this->db->limit($limit,$offset);
 		$string = $this->input->post('query');
 		$this->db->like('name',$string);
 		$this->db->or_like('gender',$string,'after');
 		$this->db->or_like('contact',$string);
 		$this->db->or_like('skills',$string);
 		$result = $this->db->get('users');
+		$count = $this->db->count_all('users');
 		return $result->result_object();
+		//return array('search' => $result->result_object(),'row_page' => $row_page);
 		// print_r($result);exit();
 		//$this->db->from('users');
 	}
+	public function page_section()
+	{
+		$count = $this->db->count_all('users');
+		$limit = $this->input->post('limit');
+		if(!isset($limit))
+			{
+				$limit = 5;
+			}
+		$row_page = $count/$limit;
+		return $row_page;
+	}
 
+	
 }
